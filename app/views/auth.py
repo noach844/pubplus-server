@@ -35,16 +35,6 @@ def register():
     return "success", 200
 
 
-@auth_bp.route('/user-details')
-@jwt_required()
-def user_details():
-    identity = get_jwt_identity()
-    user = auth.get_user_details(username=identity)
-    if not user:
-        return "User Not Found", 404
-    return jsonify(user)
-
-
 @auth_bp.route("/refresh")
 @jwt_required(refresh=True)
 def refresh():
