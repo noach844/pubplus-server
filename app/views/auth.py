@@ -17,7 +17,7 @@ def login():
         return "Bad username or password", 401
     response = make_response("success")
 
-    access_expiration_time = datetime.datetime.utcnow() + datetime.timedelta(seconds=10)
+    access_expiration_time = datetime.datetime.utcnow() + datetime.timedelta(minutes=10)
     refresh_expiration_time = datetime.datetime.utcnow() + datetime.timedelta(days=1)
 
     response.set_cookie("access_token_cookie", value=access_token,expires=access_expiration_time, secure=True, samesite='None')

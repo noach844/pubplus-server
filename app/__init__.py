@@ -14,7 +14,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://admin:admin@localhost:5432
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'super-secret'
 app.config["JWT_SECRET_KEY"] = "super-secret"
-app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(seconds=10)
+app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(minutes=10)
 app.config["JWT_CSRF_METHODS"] = []
 
 jwt = JWTManager(app)
