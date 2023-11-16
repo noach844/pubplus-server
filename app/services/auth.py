@@ -28,5 +28,13 @@ def create_user(userDetails: RegisterPayload):
     return True
 
 
+def get_user_details(username: str):
+    user_data = User.query.with_entities(User.username, User.fullname).filter_by(username=username).first()
+    if not user_data:
+        return None
+    user_data = {'fullname': user_data.fullname, 'username': user_data.username}
+    return user_data
+
+
 def refresh_token(identity):
     return create_access_token(identity=identity)
