@@ -19,10 +19,13 @@ app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(seconds=10)
 jwt = JWTManager(app)
 db = SQLAlchemy(app)
 
-from .models import *
+from app.models import *
+from app.utils import init_status_db
 
 with app.app_context():
     db.create_all()
+    init_status_db(db)
 
-from .views import *
+
+from app.views import *
 from app import routes
