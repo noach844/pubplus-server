@@ -28,6 +28,6 @@ def user_details():
 def get_all_users():
     identity = get_jwt_identity()
     users = user.get_all_users(username=identity)
-    if not users:
+    if users is None:
         return "User Not Found", 404
     return jsonify(users)
