@@ -1,7 +1,7 @@
 from app.models import Status
 
 def init_status_db(db):
-    default_names = ['Working', 'Working Remotely', 'On Vacation (should appear in grey)', 'Business Trip']
+    default_names = ['Working', 'Working Remotely', 'On Vacation', 'Business Trip']
     for name in default_names:
         if not Status.query.filter_by(name=name).first():
             status = Status(name=name)

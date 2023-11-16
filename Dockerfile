@@ -7,9 +7,11 @@ COPY . /app
 
 RUN pip install --no-cache-dir -r requirements.txt
 
+ENV PORT 5000
+ENV SECRET_KEY 'my-secret'
+# 10 minutes
+ENV ACCESS_TOKEN_EXPIRE_SEC 600
+
 EXPOSE 5000
 
-# ENV NAME World
-
 CMD ["python", "main.py", "--host", "0.0.0.0"]
-

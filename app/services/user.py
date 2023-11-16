@@ -23,7 +23,7 @@ def get_user_details(username: str):
 def get_all_users(username:str):
     users = User.query.with_entities(User.username, User.fullname,User.status_id ,Status.name).join(Status, User.status_id == Status.id).filter(User.username != username)
     if not users:
-        return None
+        return []
     return [
         {'fullname': user.fullname, 'username': user.username, 'status_name': user.name, 'status_id': user.status_id} for user in users
     ]

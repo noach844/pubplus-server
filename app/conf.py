@@ -1,0 +1,5 @@
+import os
+
+DATABASE_URI = os.getenv('DATABASE_URI')
+SECRET_KEY = os.getenv('SECRET_KEY')
+ACCESS_TOKEN_EXPIRE_SEC = int(os.getenv('ACCESS_TOKEN_EXPIRE_SEC'))
